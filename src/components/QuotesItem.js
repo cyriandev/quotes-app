@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
         flex: 1,
         width: WIDTH,
         justifyContent: "space-between",
-        padding: 20,
+        padding: 20
     }
 })
