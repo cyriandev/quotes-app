@@ -7,13 +7,13 @@ const Header = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <MaterialCommunityIcons name="comma" size={35} color={"black"} />
-            {/* <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
                 <TouchableNativeFeedback onPress={() => navigation.navigate('Menu')} background={TouchableNativeFeedback.Ripple('#e3e3e3')}>
                     <View style={{ borderRadius: 5, padding: 5 }}>
                         <Ionicons name="menu-outline" size={30} color="black" />
                     </View>
                 </TouchableNativeFeedback>
-            </View> */}
+            </View>
         </View>
     )
 }

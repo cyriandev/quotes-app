@@ -9,7 +9,7 @@ const QuotesItem = ({ quote, index }) => {
     const share = async () => {
         try {
             await Share.share({
-                message: quote.content + "\n\n " + quote.author
+                message: quote.content + "\n\n - " + quote.author
             })
         } catch (err) {
             console.log(err)
@@ -41,7 +41,7 @@ const QuotesItem = ({ quote, index }) => {
                     <View style={{ borderRadius: 5, overflow: 'hidden' }}>
                         <TouchableNativeFeedback onPress={share} background={TouchableNativeFeedback.Ripple('#e3e3e3')}>
                             <View style={{ borderRadius: 5, padding: 5 }}>
-                                <Ionicons name="ios-share-outline" size={25} color="grey" />
+                                <Ionicons name="ios-share-outline" size={30} color="black" />
                             </View>
                         </TouchableNativeFeedback>
                     </View>

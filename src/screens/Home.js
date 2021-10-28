@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { StyleSheet, Text, View, FlatList, Dimensions, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native'
 import Header from '../components/Header';
 import QuotesItem from '../components/QuotesItem';
 import QuotesContext from '../context/quotes/quotesContext'
@@ -18,12 +18,17 @@ const Home = ({ navigation }) => {
             setIsRechable(state.isInternetReachable);
         });
 
-        getQuotes();
-
         return () => {
             unsubscribe();
         }
     }, [])
+
+    useEffect(() => {
+        if (isRechable) {
+            getQuotes();
+        }
+    }, [isRechable])
+
 
     return (
         <View style={styles.container}>
@@ -41,9 +46,7 @@ const Home = ({ navigation }) => {
                 ListEmptyComponent={
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: WIDTH }}>
                         <MaterialCommunityIcons name="comma" size={50} color="#bdbdbd" />
-                        {!isRechable ?
-                            <Text>You're currently offline</Text> : <TouchableOpacity onPress={() => getQuotes()}><Text style={styles.refresh}>Refresh</Text></TouchableOpacity>
-                        }
+                        {!isRechable ? <Text>You're currently offline</Text> : null}
                     </View>}
             />
 

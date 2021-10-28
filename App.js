@@ -1,26 +1,29 @@
 import 'react-native-gesture-handler';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import {
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 import QuotesState from './src/context/quotes/QuotesState';
 import Home from './src/screens/Home';
 import Menu from './src/screens/Menu';
+import RNBootsplash from "react-native-bootsplash";
 
 const App = () => {
   const Stack = createStackNavigator();
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? console.log("dark") : console.log("light"),
-  };
+  // const backgroundStyle = {
+  //   backgroundColor: isDarkMode ? console.log("dark") : console.log("light"),
+  // };
+
+  useEffect(() => {
+    RNBootsplash.hide();
+  }, [])
 
   return (
     <QuotesState>
