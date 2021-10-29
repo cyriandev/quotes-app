@@ -1,4 +1,4 @@
-package com.quotes;
+package com.cyriandev.quotes;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;

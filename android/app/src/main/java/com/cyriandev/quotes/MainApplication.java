@@ -1,4 +1,4 @@
-package com.quotes;
+package com.cyriandev.quotes;
 
 import android.app.Application;
 import android.content.Context;

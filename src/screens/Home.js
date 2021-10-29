@@ -46,7 +46,6 @@ const Home = ({ navigation }) => {
                 ListEmptyComponent={
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: WIDTH }}>
                         <MaterialCommunityIcons name="comma" size={50} color="#bdbdbd" />
-                        {!isRechable ? <Text>You're currently offline</Text> : null}
                     </View>}
             />
 
