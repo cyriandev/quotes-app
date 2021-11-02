@@ -19,8 +19,7 @@ const QuotesItem = ({ quote, index }) => {
 
     return (
         <View style={styles.container}>
-            <View>
-            </View>
+            <View />
             <View>
                 <Text style={{ fontSize: 19, color: 'black' }}>{quote.content}</Text>
                 <Text style={{ marginTop: 30, fontSize: 17, color: 'gray' }}>{quote.author}</Text>

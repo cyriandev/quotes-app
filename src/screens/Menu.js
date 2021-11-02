@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native'
 import Feather from 'react-native-vector-icons/Feather';
 import { version } from '../../package.json';
+import Banner from '../components/Banner';
 const Menu = ({ navigation }) => {
     return (
         <View style={styles.container}>
@@ -16,6 +17,7 @@ const Menu = ({ navigation }) => {
                 </View>
                 <Text style={{ fontWeight: '700', marginLeft: 10 }}>Menu</Text>
             </View>
+            <Banner />
             <View style={{ padding: 20 }}>
 
                 <View>

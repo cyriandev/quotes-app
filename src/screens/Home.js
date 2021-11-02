@@ -5,6 +5,7 @@ import QuotesItem from '../components/QuotesItem';
 import QuotesContext from '../context/quotes/quotesContext'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NetInfo from "@react-native-community/netinfo";
+import Banner from "../components/Banner"
 
 const WIDTH = Dimensions.get('window').width;
 
@@ -48,6 +49,8 @@ const Home = ({ navigation }) => {
                         <MaterialCommunityIcons name="comma" size={50} color="#bdbdbd" />
                     </View>}
             />
+
+            <Banner />
 
         </View>
     )
