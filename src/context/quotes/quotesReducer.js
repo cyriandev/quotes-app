@@ -16,7 +16,7 @@ export default (state, action) => {
         case GET_QUOTES:
             return {
                 ...state,
-                quotes: action.payload,
+                quotes: [...state.quotes, ...action.payload],
                 quotes_loading: false
             }
         case QUOTES_ERROR:

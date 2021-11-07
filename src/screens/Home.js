@@ -13,6 +13,7 @@ const Home = ({ navigation }) => {
     const { loading, getQuotes, quotes, errors } = useContext(QuotesContext);
 
     const [isRechable, setIsRechable] = useState(true)
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
@@ -25,11 +26,12 @@ const Home = ({ navigation }) => {
     }, [])
 
     useEffect(() => {
-        if (isRechable) {
-            getQuotes();
-        }
-    }, [isRechable])
+        getQuotes(page);
+    }, [page])
 
+    const loadMore = () => {
+        setPage(page + 1);
+    }
 
     return (
         <View style={styles.container}>
@@ -42,14 +44,15 @@ const Home = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item, index }) => <QuotesItem key={index} quote={item} index={index} />}
                 keyExtractor={(_, index) => index.toString()}
-                onRefresh={() => getQuotes()}
+                onRefresh={() => console.log('refresh')}
                 refreshing={loading}
                 ListEmptyComponent={
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: WIDTH }}>
                         <MaterialCommunityIcons name="comma" size={50} color="#bdbdbd" />
                     </View>}
+                onEndReached={loadMore}
+                onEndReachedThreshold={5}
             />
-
             <Banner />
 
         </View>

@@ -19,11 +19,11 @@ const QuotesState = ({ children }) => {
 
 
     // Get quotes
-    const getQuotes = async () => {
+    const getQuotes = async (page) => {
 
         setQuotesLoading();
         try {
-            const res = await axios.get(`https://api.quotable.io/quotes?limit=150`);
+            const res = await axios.get(`https://api.quotable.io/quotes?page=${page}`);
 
             let list = res.data.results.sort(() => Math.random() - 0.5)
 
@@ -37,8 +37,9 @@ const QuotesState = ({ children }) => {
                 type: QUOTES_ERROR,
                 payload: (err.response || {}).data
             })
+            console.error(err)
 
-            setTimeout(() => clearErrors(), 5000);
+            // setTimeout(() => clearErrors(), 5000);
         }
     }
 
