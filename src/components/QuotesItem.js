@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StyleSheet, Text, View, Dimensions, Share } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 const WIDTH = Dimensions.get('window').width;
+import ThemeContext from '../context/theme/themeContext';
 
 const QuotesItem = ({ quote, index }) => {
-
+    const { dark } = useContext(ThemeContext)
     const share = async () => {
         try {
             await Share.share({
@@ -21,13 +22,13 @@ const QuotesItem = ({ quote, index }) => {
         <View style={styles.container}>
             <View />
             <View>
-                <Text style={{ fontSize: 19, color: 'black' }}>{quote.content}</Text>
-                <Text style={{ marginTop: 30, fontSize: 17, color: 'gray' }}>{quote.author}</Text>
+                <Text style={{ fontSize: 19, color: dark ? "#e4e6eb" : "black" }}>{quote.content}</Text>
+                <Text style={{ marginTop: 30, fontSize: 17, color: dark ? "rgba(235,235,245,.6)" : "gray" }}>{quote.author}</Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text>Swipe for more</Text>
+                <Text style={{ color: dark ? "#e4e6eb" : "black" }}>Swipe for more</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={{ marginRight: 10 }}>{index + 1}</Text>
+                    <Text style={{ marginRight: 10, color: dark ? "#e4e6eb" : "black" }}>{index + 1}</Text>
                     {/* 
                     <View style={{ borderRadius: 5, overflow: 'hidden', marginRight: 15 }}>
                         <TouchableNativeFeedback onPress={() => console.log('hello')} background={TouchableNativeFeedback.Ripple('#e3e3e3')}>
@@ -38,9 +39,9 @@ const QuotesItem = ({ quote, index }) => {
                     </View> */}
 
                     <View style={{ borderRadius: 5, overflow: 'hidden' }}>
-                        <TouchableNativeFeedback onPress={share} background={TouchableNativeFeedback.Ripple('#e3e3e3')}>
+                        <TouchableNativeFeedback onPress={share} background={TouchableNativeFeedback.Ripple(dark ? '#212529' : '#e3e3e3')}>
                             <View style={{ borderRadius: 5, padding: 5 }}>
-                                <Ionicons name="ios-share-outline" size={30} color="black" />
+                                <Ionicons name="ios-share-outline" size={30} color={dark ? "#e4e6eb" : "black"} />
                             </View>
                         </TouchableNativeFeedback>
                     </View>

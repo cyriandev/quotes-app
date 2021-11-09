@@ -7,7 +7,7 @@ const Banner = () => {
     return (
         <View style={styles.banner}>
             <AdMobBanner
-                adSize="smartBannerLandscape"
+                adSize="banner"
                 adUnitID="ca-app-pub-9517559323051124/3919201813"
                 testDevices={[AdMobBanner.simulatorId]}
                 onAdFailedToLoad={error => console.error(error)}

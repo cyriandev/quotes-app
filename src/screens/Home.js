@@ -1,29 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, FlatList, Dimensions, StatusBar } from 'react-native'
 import Header from '../components/Header';
 import QuotesItem from '../components/QuotesItem';
 import QuotesContext from '../context/quotes/quotesContext'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import NetInfo from "@react-native-community/netinfo";
 import Banner from "../components/Banner"
+import ThemeContext from '../context/theme/themeContext';
 
 const WIDTH = Dimensions.get('window').width;
 
 const Home = ({ navigation }) => {
-    const { loading, getQuotes, quotes, errors } = useContext(QuotesContext);
-
+    const { loading, getQuotes, quotes } = useContext(QuotesContext);
+    const { dark } = useContext(ThemeContext)
     const [isRechable, setIsRechable] = useState(true)
     const [page, setPage] = useState(1);
 
-    useEffect(() => {
-        const unsubscribe = NetInfo.addEventListener(state => {
-            setIsRechable(state.isInternetReachable);
-        });
+    // useEffect(() => {
+    //     const unsubscribe = NetInfo.addEventListener(state => {
+    //         setIsRechable(state.isInternetReachable);
+    //     });
+    //     console.log("from theme context: " + theme)
 
-        return () => {
-            unsubscribe();
-        }
-    }, [])
+    //     return () => {
+    //         unsubscribe();
+    //     }
+
+    // }, [])
 
     useEffect(() => {
         getQuotes(page);
@@ -33,8 +36,10 @@ const Home = ({ navigation }) => {
         setPage(page + 1);
     }
 
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: dark ? "black" : '#fff' }]}>
+            <StatusBar barStyle={dark ? "light-content" : "dark-content"} backgroundColor={dark ? "black" : "#F0F3F3"} />
             <Header navigation={navigation} />
 
             <FlatList
@@ -63,8 +68,7 @@ export default Home
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff'
+        flex: 1
     },
     refresh: {
         padding: 10

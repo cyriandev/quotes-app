@@ -13,7 +13,8 @@ const QuotesState = ({ children }) => {
     const initialState = {
         quotes: [],
         errors: null,
-        quotes_loading: false
+        quotes_loading: false,
+        dark: false
     }
     const [state, dispatch] = useReducer(QuotesReducer, initialState);
 
@@ -59,6 +60,7 @@ const QuotesState = ({ children }) => {
             quotes: state.quotes,
             loading: state.quotes_loading,
             errors: state.errors,
+            dark: state.dark,
             getQuotes
         }}
     >
