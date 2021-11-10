@@ -19,6 +19,25 @@ const QuotesState = ({ children }) => {
     const [state, dispatch] = useReducer(QuotesReducer, initialState);
 
 
+    // categories
+    /**
+     * 
+        friendship: 187
+        famous-quotes: 1348
+        happiness: 6
+        inspirational: 75
+        life: 17
+        love: 7
+        politic: 4
+        science: 5
+        technology: 48
+        wisdom: 315
+
+     *  
+     */
+
+
+
     // Get quotes
     const getQuotes = async (page) => {
 

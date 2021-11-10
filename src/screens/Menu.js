@@ -18,7 +18,7 @@ const Menu = ({ navigation }) => {
                         </View>
                     </TouchableNativeFeedback>
                 </View>
-                <Text style={{ color: dark ? "#e4e6eb" : 'black', fontWeight: '700', marginLeft: 10 }}>Menu</Text>
+                {/* <Text style={{ color: dark ? "#e4e6eb" : 'black', fontWeight: '700', marginLeft: 10 }}>Menu</Text> */}
             </View>
             <Banner />
             <View style={{ padding: 20 }}>

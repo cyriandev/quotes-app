@@ -26,14 +26,14 @@ const QuotesItem = ({ quote, index }) => {
                 <Text style={{ marginTop: 30, fontSize: 17, color: dark ? "rgba(235,235,245,.6)" : "gray" }}>{quote.author}</Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text style={{ color: dark ? "#e4e6eb" : "black" }}>Swipe for more</Text>
+                <Text style={{ color: dark ? "rgba(235,235,245,.6)" : "gray" }}>Swipe for more</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={{ marginRight: 10, color: dark ? "#e4e6eb" : "black" }}>{index + 1}</Text>
-                    {/* 
-                    <View style={{ borderRadius: 5, overflow: 'hidden', marginRight: 15 }}>
-                        <TouchableNativeFeedback onPress={() => console.log('hello')} background={TouchableNativeFeedback.Ripple('#e3e3e3')}>
+                    {/* <Text style={{ marginRight: 10, color: dark ? "#e4e6eb" : "black" }}>{index + 1}</Text> */}
+
+                    {/* <View style={{ borderRadius: 5, overflow: 'hidden', marginRight: 15 }}>
+                        <TouchableNativeFeedback onPress={() => console.log('hello')} background={TouchableNativeFeedback.Ripple(dark ? '#212529' : '#e3e3e3')}>
                             <View style={{ borderRadius: 5, padding: 5 }}>
-                                <Ionicons name="bookmark-outline" size={23} color="grey" />
+                                <Ionicons name="bookmark-outline" size={25} color={dark ? "#e4e6eb" : "black"} />
                             </View>
                         </TouchableNativeFeedback>
                     </View> */}
