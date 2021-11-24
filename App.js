@@ -8,6 +8,7 @@ import Home from './src/screens/Home';
 import Menu from './src/screens/Menu';
 import RNBootsplash from "react-native-bootsplash";
 import ThemeState from './src/context/theme/ThemeState';
+import Favourates from './src/screens/Favourates';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ const App = () => {
           >
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="Favourates" component={Favourates} />
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeState>

@@ -11,8 +11,8 @@ import ThemeContext from '../context/theme/themeContext';
 const WIDTH = Dimensions.get('window').width;
 
 const Home = ({ navigation }) => {
-    const { loading, getQuotes, quotes } = useContext(QuotesContext);
-    const { dark } = useContext(ThemeContext)
+    const { loading, getQuotes, quotes, getCategories, categories, getFavourates, favourates } = useContext(QuotesContext);
+    const { dark, getMode } = useContext(ThemeContext)
     const [isRechable, setIsRechable] = useState(true)
     const [page, setPage] = useState(1);
 
@@ -29,13 +29,15 @@ const Home = ({ navigation }) => {
     // }, [])
 
     useEffect(() => {
-        getQuotes(page);
+        getCategories()
+        getFavourates()
+        getMode()
+        getQuotes(page, categories);
     }, [page])
 
     const loadMore = () => {
         setPage(page + 1);
     }
-
 
     return (
         <View style={[styles.container, { backgroundColor: dark ? "black" : '#fff' }]}>
