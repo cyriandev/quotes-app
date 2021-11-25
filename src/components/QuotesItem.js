@@ -47,8 +47,6 @@ const QuotesItem = ({ quote }) => {
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Text style={{ color: dark ? "rgba(235,235,245,.6)" : "gray" }}>Swipe for more</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    {/* <Text style={{ marginRight: 10, color: dark ? "#e4e6eb" : "black" }}>{index + 1}</Text> */}
-
                     <View style={{ borderRadius: 5, overflow: 'hidden', marginRight: 15 }}>
                         <TouchableNativeFeedback onPress={() => setFav(quote)} background={TouchableNativeFeedback.Ripple(dark ? '#212529' : '#e3e3e3')}>
                             <View style={{ borderRadius: 5, padding: 5 }}>

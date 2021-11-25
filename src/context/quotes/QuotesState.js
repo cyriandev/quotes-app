@@ -3,7 +3,6 @@ import axios from 'axios';
 import QuotesContext from './quotesContext';
 import QuotesReducer from './quotesReducer';
 import {
-    CLEAR_ERRORS,
     GET_QUOTES,
     QUOTES_LOADING,
     QUOTES_ERROR,
@@ -69,6 +68,7 @@ const QuotesState = ({ children }) => {
         }
     }
 
+    // Get all categories from localstorage
     const getCategories = async () => {
         try {
             const res = await AsyncStorage.getItem('@categories')
@@ -82,6 +82,7 @@ const QuotesState = ({ children }) => {
         }
     }
 
+    // get all favourates from localstorage
     const getFavourates = async () => {
         try {
             const res = await AsyncStorage.getItem('@favourates')
@@ -95,6 +96,7 @@ const QuotesState = ({ children }) => {
         }
     }
 
+    // add favourates to localstorage
     const addFavourates = async (items) => {
         try {
             await AsyncStorage.setItem('@favourates', JSON.stringify(items))
@@ -108,6 +110,7 @@ const QuotesState = ({ children }) => {
         }
     }
 
+    // add category to locastorage
     const addCategory = async (items) => {
         try {
             await AsyncStorage.setItem('@categories', JSON.stringify(items))
@@ -125,12 +128,6 @@ const QuotesState = ({ children }) => {
         }
     }
 
-
-
-    // Clear Errors
-    const clearErrors = () => dispatch({
-        type: CLEAR_ERRORS
-    })
 
     // Set Loading
     const setQuotesLoading = () => dispatch({ type: QUOTES_LOADING })

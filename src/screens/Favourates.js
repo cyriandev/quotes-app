@@ -20,7 +20,6 @@ const Favourates = ({ navigation }) => {
                         </View>
                     </TouchableNativeFeedback>
                 </View>
-                {/* <Text style={{ color: dark ? "#e4e6eb" : 'black', fontWeight: '700', marginLeft: 10 }}>Menu</Text> */}
             </View>
             <Banner />
             <View style={{ padding: 20, flex: 1 }}>
@@ -34,7 +33,6 @@ const Favourates = ({ navigation }) => {
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <MaterialCommunityIcons name="comma" size={50} color="#bdbdbd" />
                         </View>}
-                // ItemSeparatorComponent={() => <View style={{ borderBottomColor: '#fafafa', borderWidth: 1 }} />}
                 />
             </View>
 

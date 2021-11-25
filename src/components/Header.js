@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native'
+import { StyleSheet, View, TouchableNativeFeedback } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ThemeContext from '../context/theme/themeContext';

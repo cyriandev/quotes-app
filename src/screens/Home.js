@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { StyleSheet, Text, View, FlatList, Dimensions, StatusBar } from 'react-native'
+import { StyleSheet, View, FlatList, Dimensions, StatusBar } from 'react-native'
 import Header from '../components/Header';
 import QuotesItem from '../components/QuotesItem';
 import QuotesContext from '../context/quotes/quotesContext'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import NetInfo from "@react-native-community/netinfo";
 import Banner from "../components/Banner"
 import ThemeContext from '../context/theme/themeContext';
 
@@ -13,20 +12,7 @@ const WIDTH = Dimensions.get('window').width;
 const Home = ({ navigation }) => {
     const { loading, getQuotes, quotes, getCategories, categories, getFavourates, favourates } = useContext(QuotesContext);
     const { dark, getMode } = useContext(ThemeContext)
-    const [isRechable, setIsRechable] = useState(true)
     const [page, setPage] = useState(1);
-
-    // useEffect(() => {
-    //     const unsubscribe = NetInfo.addEventListener(state => {
-    //         setIsRechable(state.isInternetReachable);
-    //     });
-    //     console.log("from theme context: " + theme)
-
-    //     return () => {
-    //         unsubscribe();
-    //     }
-
-    // }, [])
 
     useEffect(() => {
         getCategories()
